@@ -1173,25 +1173,39 @@
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-number">N150</div>
-                        <div class="stat-label">6 cores, 6 threads</div>
+                        <div class="stat-label">4 cores, up to 3.6GHz</div>
                     </div>
                     <div class="stat-card secondary">
-                        <div class="stat-number">939 Mbps</div>
-                        <div class="stat-label">Singtel Gigabit</div>
+                        <div class="stat-number">8GB</div>
+                        <div class="stat-label">DDR5 RAM (5.5GB usable)</div>
                     </div>
                     <div class="stat-card warning">
-                        <div class="stat-number">~8-16GB</div>
-                        <div class="stat-label">RAM (Your Bottleneck)</div>
+                        <div class="stat-number">128GB</div>
+                        <div class="stat-label">M.2 SSD (Your Bottleneck)</div>
                     </div>
                 </div>
 
                 <div class="recommendation-box" style="margin-top: 20px;">
-                    <h4>🔍 Key Insights</h4>
+                    <h4>🖥️ Full Specs</h4>
+                    <table style="margin-top: 10px; font-size: 0.9rem;">
+                        <tr><td><strong>CPU</strong></td><td>Intel® N150 (Alder Lake-N, 4 cores, up to 3.6GHz)</td></tr>
+                        <tr><td><strong>RAM</strong></td><td>8GB DDR5 (7.5GB usable, ~4800MHz)</td></tr>
+                        <tr><td><strong>Storage</strong></td><td>128GB Hanstor M.2 SSD (119GB usable)</td></tr>
+                        <tr><td><strong>OS</strong></td><td>Ubuntu 24.04.4 LTS</td></tr>
+                        <tr><td><strong>Network</strong></td><td>Singtel Gigabit (939 Mbps symmetrical)</td></tr>
+                        <tr><td><strong>Current Usage</strong></td><td>RAM: 27% (2GB/7.5GB), Storage: ~118GB root</td></tr>
+                    </table>
+                </div>
+
+                <div class="recommendation-box" style="margin-top: 20px; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-left-color: var(--primary);">
+                    <h4>🔍 Key Insights for Your Setup</h4>
                     <ul class="checklist" style="margin-top: 10px;">
-                        <li>RAM will be your bottleneck before CPU (per @elvissun: 16GB swaps at 4-5 concurrent agents)</li>
-                        <li>No dedicated GPU (rules out local 70B+ models, but 7B models via Ollama work fine)</li>
-                        <li>Always-on capability (unlike laptop deployments)</li>
-                        <li>Your setup is ideal for multi-agent experimentation</li>
+                        <li><strong>RAM is your primary constraint</strong> — 8GB means 2-3 concurrent agents max (per @elvissun: 16GB swaps at 4-5 agents)</li>
+                        <li><strong>Storage will fill fast</strong> — 128GB is tight for multiple agent workspaces + logs + memory files. Consider adding that Crucial P310!</li>
+                        <li><strong>CPU is adequate</strong> — N150's 4 cores @ 3.6GHz handles OpenClaw gateway + 2-3 agents comfortably</li>
+                        <li><strong>No GPU</strong> — rules out local 70B+ models, but 7B models via Ollama work fine for heartbeats/fallbacks</li>
+                        <li><strong>Always-on capability</strong> — unlike laptop deployments, your mini PC stays up 24/7</li>
+                        <li><strong>DDR5 RAM is fast</strong> — 4800MHz helps with context loading and memory file I/O</li>
                     </ul>
                 </div>
             </div>
@@ -1210,18 +1224,21 @@ DaNiu 大牛🐮 (Orchestrator)
                     </div>
                     <p style="margin-top: 15px;"><strong>Why this fits:</strong></p>
                     <ul class="checklist">
-                        <li>Your N150 can handle 2-3 concurrent agents comfortably</li>
+                        <li><strong>RAM-safe</strong> — 2 agents use ~3-4GB total, leaving headroom on your 8GB</li>
+                        <li><strong>CPU-safe</strong> — N150's 4 cores handle 2 concurrent agents without swapping</li>
                         <li>Telegram already configured (your primary channel)</li>
                         <li>Matches @trebuh's and Seth's proven patterns</li>
-                        <li>Low RAM usage (~4-6GB total)</li>
+                        <li><strong>Storage-conscious</strong> — 2 workspaces = ~2-4GB, won't fill your 128GB fast</li>
                     </ul>
                     <p style="margin-top: 15px;"><strong>Model Strategy:</strong></p>
                     <ul>
                         <li><strong>DaNiu:</strong> qwen3.5-plus (your current model, strong reasoning)</li>
-                        <li><strong>Dev Agent:</strong> qwen3.5-plus or minimax/MiniMax-M2.1 (coding-optimized)</li>
+                        <li><strong>Dev Agent:</strong> minimax/MiniMax-M2.1 (coding-optimized, cheaper)</li>
                         <li><strong>Research Agent:</strong> Gemini 2.5 Flash (free tier, strong web research)</li>
+                        <li><strong>Heartbeat fallback:</strong> ollama/qwen2.5:7b (local, free, never-down)</li>
                     </ul>
                     <p style="margin-top: 15px;"><strong>Estimated Cost:</strong> ~$7-15/month (GPT-OSS-120B or Gemini Flash for workers)</p>
+                    <p style="margin-top: 10px; color: var(--warning);"><strong>⚠️ Hardware Limit:</strong> Do NOT exceed 3 concurrent agents on 8GB RAM. Monitor with <code>htop</code> — if swapping, reduce agents.</p>
                 </div>
 
                 <div class="phase">
@@ -1238,11 +1255,23 @@ Daily:
 Ongoing:
 - Dev: Monitor GitHub PRs on blurboy1985 repos
 - Research: Monitor SGX stock news (D05.SI/DBS, etc.)
+
+## Hardware Monitoring (Your N150)
+- Check RAM usage before spawning sub-agents
+- Alert if storage < 20GB remaining
+- Use local Ollama for heartbeats (saves API cost + reduces load)
                     </div>
+                    <p style="margin-top: 15px;"><strong>Storage Management for 128GB SSD:</strong></p>
+                    <ul class="checklist">
+                        <li>Set log rotation to 7 days max</li>
+                        <li>Archive old memory files monthly</li>
+                        <li>Monitor with: <code>df -h / && du -sh ~/.openclaw/workspace/*</code></li>
+                        <li>Consider mounting external SSD for workspace if adding more agents</li>
+                    </ul>
                 </div>
 
                 <div class="phase">
-                    <div class="phase-title">Phase 3: Expand to 4 Agents (Month 2)</div>
+                    <div class="phase-title">Phase 3: Expand to 3-4 Agents (Month 2)</div>
                     <p><strong>Pattern:</strong> Specialized Team (Trebuh's model)</p>
                     <div class="code-block">
 DaNiu 大牛🐮 (Strategy Lead) — qwen3.5-plus
@@ -1251,7 +1280,15 @@ DaNiu 大牛🐮 (Strategy Lead) — qwen3.5-plus
     ├─ Marketing (Content/SEO) — Gemini
     └─ Dev (Coding/PRs) — Codex / qwen3.5-plus
                     </div>
+                    <p style="margin-top: 15px;"><strong>⚠️ Hardware Warning for Your N150:</strong></p>
+                    <ul class="checklist">
+                        <li><strong>4 agents will push your 8GB RAM limit</strong> — expect 6-7GB usage</li>
+                        <li><strong>Run agents sequentially, not concurrently</strong> — use `maxConcurrent: 2` in config</li>
+                        <li><strong>Monitor closely</strong> — <code>watch -n 5 free -h</code> in another terminal</li>
+                        <li><strong>Add swap if needed</strong> — <code>sudo fallocate -l 4G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile && sudo swapon /swapfile</code></li>
+                    </ul>
                     <p style="margin-top: 15px;"><strong>Estimated Cost:</strong> ~$20-50/month (mixed models, optimized heartbeats)</p>
+                    <p style="margin-top: 10px;"><strong>Upgrade Path:</strong> If you hit RAM limits, add the Crucial P310 for swap space OR consider a RAM upgrade (if your mini PC supports 16GB).</p>
                 </div>
             </div>
 
@@ -1264,7 +1301,7 @@ mkdir -p ~/.openclaw/workspace-dev
 cp ~/.openclaw/workspace/SOUL.md ~/.openclaw/workspace-dev/
 # Edit SOUL.md for Dev Agent persona
 
-# Step 2: Update openclaw.json
+# Step 2: Update openclaw.json (N150-optimized)
 {
   "agents": {
     "list": [
@@ -1274,7 +1311,9 @@ cp ~/.openclaw/workspace/SOUL.md ~/.openclaw/workspace-dev/
         "workspace": "~/.openclaw/workspace",
         "model": "modelstudio/qwen3.5-plus",
         "subagents": {
-          "allowAgents": ["dev", "research"]
+          "allowAgents": ["dev", "research"],
+          "maxConcurrent": 2,
+          "model": "minimax/MiniMax-M2.1"
         }
       },
       {
@@ -1291,22 +1330,40 @@ cp ~/.openclaw/workspace/SOUL.md ~/.openclaw/workspace-dev/
 # Message DaNiu on Telegram:
 # "Ask the dev agent to create a Python script that fetches DBS stock price from Yahoo Finance and saves it to CSV."
 
-# Step 4: Monitor and Iterate
+# Step 4: Monitor Hardware (Critical for N150!)
+# In another terminal, watch RAM usage:
+watch -n 5 "free -h && echo '---' && df -h /"
+
+# Check OpenClaw logs:
 openclaw logs --follow
+
+# If RAM > 7GB, stop spawning sub-agents!
                 </div>
+                <p style="margin-top: 15px;"><strong>N150-Specific Tips:</strong></p>
+                <ul class="checklist">
+                    <li><strong>maxConcurrent: 2</strong> — prevents RAM overload on 8GB</li>
+                    <li><strong>Cheaper sub-agent model</strong> — MiniMax-M2.1 saves cost + reduces context load</li>
+                    <li><strong>Monitor before spawning</strong> — check <code>free -h</code> first</li>
+                    <li><strong>Add swap if needed</strong> — 4GB swap file gives breathing room</li>
+                </ul>
             </div>
 
             <div class="recommendation-box">
-                <h4>🎯 Final Recommendation</h4>
-                <p style="margin-top: 10px;"><strong>Start with Phase 1 (2 agents) this week.</strong> Your N150 can handle it, the pattern is proven by @trebuh and Seth, and you'll learn the orchestration mechanics without overwhelming your hardware.</p>
-                <p style="margin-top: 15px;"><strong>Key success factors:</strong></p>
+                <h4>🎯 Final Recommendation for Your N150 Mini PC</h4>
+                <p style="margin-top: 10px;"><strong>Start with Phase 1 (2 agents) this week.</strong> Your N150 (4 cores, 8GB RAM) can handle 2 agents comfortably, and the pattern is proven by @trebuh and Seth.</p>
+                <p style="margin-top: 15px;"><strong>Hardware-Aware Success Factors:</strong></p>
                 <ul class="checklist" style="margin-top: 10px;">
-                    <li>Disable or optimize heartbeat (saves 90% on idle costs)</li>
-                    <li>Use Docker sandboxing for sub-agents</li>
-                    <li>Write memory obsessively (agents forget on restart)</li>
-                    <li>Start with 2 agents, expand based on actual bottlenecks</li>
-                    <li>Use GPT-OSS-120B for workers — 50x cheaper than Opus with 95% of capability</li>
+                    <li><strong>maxConcurrent: 2</strong> — never exceed this on 8GB RAM</li>
+                    <li><strong>Monitor RAM</strong> — <code>watch -n 5 free -h</code> before spawning sub-agents</li>
+                    <li><strong>Add 4GB swap</strong> — gives safety margin: <code>sudo fallocate -l 4G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile && sudo swapon /swapfile</code></li>
+                    <li><strong>Watch storage</strong> — <code>df -h /</code> weekly, alert if < 20GB free</li>
+                    <li><strong>Optimize heartbeat</strong> — use local Ollama (saves 90% idle cost + reduces API load)</li>
+                    <li><strong>Docker sandboxing</strong> — isolates sub-agents, prevents runaway memory</li>
+                    <li><strong>Write memory obsessively</strong> — agents forget on restart</li>
+                    <li><strong>Use GPT-OSS-120B</strong> — 50x cheaper than Opus with 95% capability</li>
+                    <li><strong>Consider Crucial P310</strong> — add external SSD for workspace if expanding beyond 3 agents</li>
                 </ul>
+                <p style="margin-top: 15px; font-weight: 600; color: var(--primary);">🚀 Ready to start? Message DaNiu on Telegram: "Set up a 2-agent multi-agent system with a dev agent and research agent. Use the N150-optimized config from the report."</p>
             </div>
         </section>
     </div>
