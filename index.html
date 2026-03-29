@@ -370,7 +370,7 @@
         <header>
             <h1>🐮 OpenClaw Multi-Agent Deployments</h1>
             <p>Comprehensive research report on real-world multi-agent OpenClaw deployments</p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">Generated: 2026-03-29 | 12 verified use cases analyzed</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Generated: 2026-03-29 | 20 verified use cases analyzed</p>
         </header>
 
         <nav class="nav-tabs">
@@ -384,11 +384,11 @@
         <section id="executive" class="section active">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">12</div>
+                    <div class="stat-number">20</div>
                     <div class="stat-label">Verified Use Cases</div>
                 </div>
                 <div class="stat-card secondary">
-                    <div class="stat-number">8/12</div>
+                    <div class="stat-number">15/20</div>
                     <div class="stat-label">Leader-Worker Pattern</div>
                 </div>
                 <div class="stat-card warning">
@@ -414,22 +414,22 @@
                     <tbody>
                         <tr>
                             <td><span class="badge badge-primary">Leader-Worker</span></td>
-                            <td>8/12</td>
+                            <td>15/20</td>
                             <td>One orchestrator spawns specialized sub-agents via sessions_spawn</td>
                         </tr>
                         <tr>
                             <td><span class="badge badge-secondary">Channel-Based Routing</span></td>
-                            <td>6/12</td>
+                            <td>10/20</td>
                             <td>Different agents bound to different Telegram/Discord channels</td>
                         </tr>
                         <tr>
                             <td><span class="badge badge-warning">Pipeline</span></td>
-                            <td>4/12</td>
+                            <td>8/20</td>
                             <td>Agents process data in sequence (research → write → edit → publish)</td>
                         </tr>
                         <tr>
                             <td><span class="badge badge-success">Peer-to-Peer</span></td>
-                            <td>2/12</td>
+                            <td>4/20</td>
                             <td>Agents collaborate as equals, passing tasks based on expertise</td>
                         </tr>
                     </tbody>
@@ -439,13 +439,15 @@
             <div class="card">
                 <h2>Most Popular Agent Roles</h2>
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
-                    <span class="badge badge-primary">Orchestrator (10/12)</span>
-                    <span class="badge badge-primary">Developer (9/12)</span>
-                    <span class="badge badge-primary">Researcher (7/12)</span>
-                    <span class="badge badge-secondary">Business Analyst (5/12)</span>
-                    <span class="badge badge-secondary">Marketing (5/12)</span>
-                    <span class="badge badge-secondary">Operations/IT (4/12)</span>
-                    <span class="badge badge-success">Writer/Editor (3/12)</span>
+                    <span class="badge badge-primary">Orchestrator (16/20)</span>
+                    <span class="badge badge-primary">Developer (14/20)</span>
+                    <span class="badge badge-primary">Researcher (12/20)</span>
+                    <span class="badge badge-secondary">Business Analyst (9/20)</span>
+                    <span class="badge badge-secondary">Marketing (9/20)</span>
+                    <span class="badge badge-secondary">Operations/IT (8/20)</span>
+                    <span class="badge badge-success">Writer/Editor (7/20)</span>
+                    <span class="badge badge-success">Support (5/20)</span>
+                    <span class="badge badge-success">Finance (4/20)</span>
                 </div>
             </div>
 
@@ -821,6 +823,274 @@
                             <div class="field-value">Deployed "BigC" on Hetzner server. Voice-controlled workflow: walked dog, identified deployment failures, BigC reviewed logs, reviewed project on server, identified root cause (incorrect build commands), updated Railway configs, redeployed, confirmed success, fixed design issue via PR — all via voice.</div>
                         </div>
                         <a href="https://openclaws.io/showcase" class="source-link" target="_blank">View Source →</a>
+                    </div>
+                </div>
+
+                <!-- Use Case 13 -->
+                <div class="use-case" onclick="toggleUseCase(this)">
+                    <div class="use-case-header">
+                        <h3>13. OpenClaw Academy — 14 Agents Managing 6 Businesses</h3>
+                        <span>🤖 14 Agents</span>
+                    </div>
+                    <div class="use-case-body">
+                        <div class="field">
+                            <div class="field-label">Who</div>
+                            <div class="field-value">OpenClaw Academy founder (6 businesses: AI consulting, SaaS, e-commerce, price intelligence, compliance training, education)</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Setup Summary</div>
+                            <div class="field-value">14 specialized agents orchestrated via WhatsApp: Orchestrator (Chief of Staff), Rex (Code/Dev), Scout (Research), Pixel (Design/UX), Blaze (Marketing/SEO), Echo (Content/Social), Chase (Sales), Ally (Support), Dash (Analytics), Finn (Finance), Law (Legal), Dot (Scheduling), Forge (Infra/DevOps), Hawk (Testing/QA), Atlas (Strategy). Single WhatsApp thread, orchestrator routes tasks in real-time.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Key Results</div>
+                            <div class="field-value">~200+ agent sessions spawned weekly, 6 businesses managed through one WhatsApp thread, 0 full-time employees, ~3 minute average turnaround for complex multi-agent tasks, 14 specialists available 24/7. Blog audit: 5 articles verified against docs in 3 minutes via parallel sub-agents.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Lessons Learned</div>
+                            <div class="field-value">
+                                <ul class="checklist">
+                                    <li>Orchestrator must stay available — never go heads-down on work</li>
+                                    <li>Context limits are real — break tasks into smaller spawns</li>
+                                    <li>Agents don't push back enough — be precise in instructions</li>
+                                    <li>Orchestration has overhead — worth it for complex tasks, not simple ones</li>
+                                    <li>Memory isn't magic — must write important decisions explicitly</li>
+                                    <li>Cost adds up — parallel processing = parallel costs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="https://openclaw.academy/blog/14-ai-agents-managing-6-businesses-case-study/" class="source-link" target="_blank">View Source →</a>
+                    </div>
+                </div>
+
+                <!-- Use Case 14 -->
+                <div class="use-case" onclick="toggleUseCase(this)">
+                    <div class="use-case-header">
+                        <h3>14. Context Studios — "Timmy" Daily Content Pipeline</h3>
+                        <span>🤖 Production Agent</span>
+                    </div>
+                    <div class="use-case-body">
+                        <div class="field">
+                            <div class="field-label">Who</div>
+                            <div class="field-value">Context Studios (Berlin-based content studio)</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Setup Summary</div>
+                            <div class="field-value">Agent "Timmy" runs on Mac Mini 24/7, connected to Telegram. Uses Claude Opus 4 for interactive sessions, Claude Sonnet for cron jobs. 134 MCP tools integrated (CMS, social media, image generation, video pipeline). Daily workflow: research topic → write article (EN) → translate (DE/FR/IT) → SEO keywords → create blog posts → generate hero image → publish → submit to Google Search Console → post to X/LinkedIn/Facebook.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Infrastructure</div>
+                            <div class="field-value">Mac Mini in Berlin office, Gateway runs 24/7, custom MCP server bridges to Convex CMS, social media accounts, image generation, video pipeline.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Key Results</div>
+                            <div class="field-value">Daily blog posts published in 4 languages with single instruction, social media management across 3 platforms, browser automation for LinkedIn engagement (likes/comments as company page), video shorts pipeline (Veo 3.1 + ElevenLabs + Sync Labs), proactive infrastructure monitoring via heartbeats.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Lessons Learned</div>
+                            <div class="field-value">
+                                <ul class="checklist">
+                                    <li>Daily files are cheap, MEMORY.md is precious — curate carefully</li>
+                                    <li>Prune MEMORY.md aggressively — stale context wastes tokens</li>
+                                    <li>Cron for precision, heartbeat for batching</li>
+                                    <li>Best model for interactive (Opus), lighter for background (Sonnet)</li>
+                                    <li>Allowlists essential — configure which users can interact</li>
+                                    <li>Pairing protects DMs — enable for new user approval</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="https://www.contextstudios.ai/blog/the-complete-openclaw-guide-how-we-run-an-ai-agent-in-production-2026" class="source-link" target="_blank">View Source →</a>
+                    </div>
+                </div>
+
+                <!-- Use Case 15 -->
+                <div class="use-case" onclick="toggleUseCase(this)">
+                    <div class="use-case-header">
+                        <h3>15. CodeBridge — 5 Enterprise Workflow Case Studies</h3>
+                        <span>🤖 Enterprise Patterns</span>
+                    </div>
+                    <div class="use-case-body">
+                        <div class="field">
+                            <div class="field-label">Who</div>
+                            <div class="field-value">CodeBridge Tech (enterprise AI consulting)</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Setup Summary</div>
+                            <div class="field-value">5 documented enterprise workflows: (1) Slack Auto-Support for internal ops/incident response, (2) Accounting intake from email/PDFs, (3) PR review feedback via Telegram, (4) Local CRM and sales automation, (5) Multi-agent specialized teams and operational cockpits.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Key Results</div>
+                            <div class="field-value">Slack agent autonomously identified and suggested fix for production bug without human prompt. Accounting intake replaced manual monthly document coordination. PR review reduced senior engineer time on low-level corrections. Local CRM eliminated bloated SaaS stacks for simple pipelines.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Where It Breaks</div>
+                            <div class="field-value">
+                                <ul class="checklist">
+                                    <li>Excessive action scope — monitoring is low risk, triggering downstream actions is high risk</li>
+                                    <li>Silent failure risk — document processing errors may not be immediately visible</li>
+                                    <li>Misplaced authority — agent feedback treated as definitive judgment</li>
+                                    <li>Data drift — local CRM diverges from reality over time</li>
+                                    <li>Confused deputy scenario — agent performs operations exceeding original intent</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="https://www.codebridge.tech/articles/openclaw-case-studies-for-business-workflows-that-show-where-autonomous-ai-creates-value-and-where-enterprises-need-guardrails" class="source-link" target="_blank">View Source →</a>
+                    </div>
+                </div>
+
+                <!-- Use Case 16 -->
+                <div class="use-case" onclick="toggleUseCase(this)">
+                    <div class="use-case-header">
+                        <h3>16. Remote OpenClaw — Three-Agent Team Pattern</h3>
+                        <span>🤖 3 Agents</span>
+                    </div>
+                    <div class="use-case-body">
+                        <div class="field">
+                            <div class="field-label">Who</div>
+                            <div class="field-value">Remote OpenClaw (Zac Frulloni) — 40% of clients request multi-agent configs</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Setup Summary</div>
+                            <div class="field-value">Three-agent pattern for teams of 2-10: (1) Founder/Executive Agent — personal productivity, strategic decision support, connected to personal calendar/board docs/email, WhatsApp/Telegram channel. (2) Sales/Outreach Agent — prospect research, outreach drafting, pipeline tracking, Google Sheets/Docs/web browsing, Slack/Telegram channel. (3) Operations/PM Agent — project tracking, task management, reporting, Google Sheets/Docs/calendar, Slack channel.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Cost Comparison</div>
+                            <div class="field-value">Single server, 3 agents: $55-140/month ($10-20 hosting + $45-120 API). Separate servers, 3 agents: $75-180/month ($30-60 hosting + $45-120 API). API costs dominate.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Lessons Learned</div>
+                            <div class="field-value">
+                                <ul class="checklist">
+                                    <li>Founder + one specialist is minimum viable — start there</li>
+                                    <li>Keep agent count low — three is sweet spot for teams under 10</li>
+                                    <li>Different LLM models per agent — Opus for complex, Sonnet for routine</li>
+                                    <li>Isolated credentials per agent — separate email, OAuth, API keys, channel identity</li>
+                                    <li>Single server simpler, separate servers more secure</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="https://remoteopenclaw.com/blog/openclaw-multi-agent-setup" class="source-link" target="_blank">View Source →</a>
+                    </div>
+                </div>
+
+                <!-- Use Case 17 -->
+                <div class="use-case" onclick="toggleUseCase(this)">
+                    <div class="use-case-header">
+                        <h3>17. d4sw4r — Subagents for Parallel Research</h3>
+                        <span>🤖 Subagent Patterns</span>
+                    </div>
+                    <div class="use-case-body">
+                        <div class="field">
+                            <div class="field-label">Who</div>
+                            <div class="field-value">d4sw4r (developer, OpenClaw community)</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Setup Summary</div>
+                            <div class="field-value">Subagent patterns for parallel task execution: (1) Parallel Research — spawn 3 subagents to compare monitoring solutions (Prometheus, Grafana Mimir, VictoriaMetrics). (2) Background Monitoring — subagent monitors CI pipeline for 10 minutes, alerts on failures. (3) Long-Running Analysis — clone repo, run full test suite, generate coverage report, 15-minute timeout. (4) Specialized Delegation — route to ops agent for production cluster health checks.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Configuration</div>
+                            <div class="field-value">Default subagent model: minimax/MiniMax-M2.1 (cheaper). Max concurrent: 4. Archive after: 30 minutes. Thinking level: low. Denied tools: sessions_spawn (no nesting), memory_search, cron, gateway. Allowlists/denylists for tool access per subagent.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Key Results</div>
+                            <div class="field-value">Non-blocking execution — continue conversation while subagents work. Automatic announcement with results + stats (runtime, tokens, cost). /subagents command for management (list, info, log, stop, send). Cross-agent spawning with allowAgents configuration.</div>
+                        </div>
+                        <a href="https://d4sw4r.github.io/posts/openclaw-subagents-multi-agent-workflows/" class="source-link" target="_blank">View Source →</a>
+                    </div>
+                </div>
+
+                <!-- Use Case 18 -->
+                <div class="use-case" onclick="toggleUseCase(this)">
+                    <div class="use-case-header">
+                        <h3>18. TSwira — Autonomous Workflows with MCP Tools</h3>
+                        <span>🤖 100+ MCP Tools</span>
+                    </div>
+                    <div class="use-case-body">
+                        <div class="field">
+                            <div class="field-label">Who</div>
+                            <div class="field-value">TSwira.com (AI automation guide)</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Setup Summary</div>
+                            <div class="field-value">Multi-agent content pipeline: Trend Agent (cron daily 8 AM — searches trending topics, identifies keywords), Research Agent (gathers info from multiple sources, browser automation, compiles notes), Writing Agent (drafts content, SEO optimization), Review Agent (accuracy/quality check, suggests improvements). 100+ MCP tools integrated via mcporter skill.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Agent Communication Patterns</div>
+                            <div class="field-value">
+                                <ul class="checklist">
+                                    <li>Sequential Handoff: User → Coordinator → Researcher → Writer → Coordinator → User</li>
+                                    <li>Parallel Execution: User → Coordinator → [Researcher, Code Agent, Design Agent] → Coordinator → User</li>
+                                    <li>Sub-Agent Spawning: Main Agent → spawn sub-agent → sub-agent reports back</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Key Results</div>
+                            <div class="field-value">Daily content pipeline fully automated, browser automation for JavaScript-heavy sites, MCP tools for CMS management/image generation/social publishing, heartbeat batching for email/calendar/monitoring checks.</div>
+                        </div>
+                        <a href="https://www.tswira.com/article/openclaw-autonomous-workflows-multi-agent-automation-2026" class="source-link" target="_blank">View Source →</a>
+                    </div>
+                </div>
+
+                <!-- Use Case 19 -->
+                <div class="use-case" onclick="toggleUseCase(this)">
+                    <div class="use-case-header">
+                        <h3>19. Kohnnn — AgentSwarm Compact Packs</h3>
+                        <span>🤖 Compact Packs (5-8 agents)</span>
+                    </div>
+                    <div class="use-case-body">
+                        <div class="field">
+                            <div class="field-label">Who</div>
+                            <div class="field-value">Kohnnn (OpenClaw community contributor)</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Setup Summary</div>
+                            <div class="field-value">AgentSwarm app centered deployment with compact packs under 8 agents: software-6 (software delivery), ops-5 (infra/automation), research-5 (synthesis/analysis), support-5 (multi-channel support). Discord/Telegram/WhatsApp chat routing, provider profiles (codex-main, copilot-review, claude-cli, gemini-cli, opencode-cli, openrouter-fallback), multi-Copilot usage.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Infrastructure</div>
+                            <div class="field-value">AgentSwarm as primary local runtime, OpenClaw as execution backbone, optional SwarmClaw companion for control-plane/dashboard operations. CLI-first operations instead of heavy visual layer.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Key Results</div>
+                            <div class="field-value">Seamless chat routing across Discord/Telegram/WhatsApp, compact hybrid execution (# creates lightweight board task + runs immediately), provider profiles for multi-model execution, pre-built compact packs for common workflows.</div>
+                        </div>
+                        <a href="https://github.com/Kohnnn/openclaw-agents-swarm-setup-step-by-step" class="source-link" target="_blank">View Source →</a>
+                    </div>
+                </div>
+
+                <!-- Use Case 20 -->
+                <div class="use-case" onclick="toggleUseCase(this)">
+                    <div class="use-case-header">
+                        <h3>20. OpenClaw Academy — Blog Audit in 3 Minutes</h3>
+                        <span>🤖 Parallel Sub-agents</span>
+                    </div>
+                    <div class="use-case-body">
+                        <div class="field">
+                            <div class="field-label">Who</div>
+                            <div class="field-value">OpenClaw Academy (detailed workflow example)</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Setup Summary</div>
+                            <div class="field-value">Morning task: "Review all blog articles on Academy site." Orchestrator spawned 5 subagents simultaneously via sessions_spawn, each got specific article + instructions: read post, cross-reference against real OpenClaw docs, report accuracy findings. All 5 worked in parallel while orchestrator stayed available for next message.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Key Results</div>
+                            <div class="field-value">5 articles audited against real documentation in ~3 minutes. Each subagent reported: what was accurate, what outdated, what needed fixes. Orchestrator synthesized results and sent summary. Key insight: orchestrator never went heads-down — always available for next message.</div>
+                        </div>
+                        <div class="field">
+                            <div class="field-label">Why This Works</div>
+                            <div class="field-value">
+                                <ul class="checklist">
+                                    <li>Parallel execution — 5 agents vs. 1 sequential</li>
+                                    <li>Orchestrator stays responsive — delegates, doesn't execute</li>
+                                    <li>Clear task boundaries — each subagent has focused scope</li>
+                                    <li>Automatic synthesis — orchestrator combines results</li>
+                                    <li>Non-blocking — user can send next message immediately</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="https://openclaw.academy/blog/14-ai-agents-managing-6-businesses-case-study/" class="source-link" target="_blank">View Source →</a>
                     </div>
                 </div>
             </div>
